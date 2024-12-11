@@ -2,7 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- Déclaration de la version du modèle -->
+
+    <!-- Version de Maven -->
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Identifiant du projet -->
@@ -11,23 +12,25 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>Examen DevOps</name>
 
-    <!-- Dépendances et plugins nécessaires -->
+    <!-- Définir les propriétés -->
+    <properties>
+        <spring-boot.version>3.0.0</spring-boot.version>
+    </properties>
+
+    <!-- Dépendances nécessaires -->
     <dependencies>
-        <!-- Dépendance Spring Boot Starter Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.0.0</version>
+            <version>${spring-boot.version}</version>
         </dependency>
 
-        <!-- Dépendance Spring Boot Starter Actuator -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <version>3.0.0</version>
+            <version>${spring-boot.version}</version>
         </dependency>
 
-        <!-- Dépendance JUnit 5 pour les tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -42,18 +45,23 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Dépendance Spring Boot Starter Test (JUnit 5) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>3.0.0</version>
+            <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
-    <!-- Configuration de la compilation Java -->
+    <!-- Plugins de compilation -->
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -65,4 +73,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
